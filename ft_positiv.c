@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:07 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:09 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/10/15 01:34:08 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:35:05 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_positiv(int n)
 {
-	write(fd, &c, 1);
+	if (n < 0)
+		return (n *= -1);
+	return (n);
 }

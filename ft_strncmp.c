@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:02:26 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/16 14:34:33 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:29:00 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:29:02 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

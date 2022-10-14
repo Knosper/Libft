@@ -1,163 +1,168 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/15 01:16:32 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:27:14 by jjesberg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char    *read_buf(char *save, int fd, int *stop)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+    char    *buf;
+    int     count;
 
-	i = -1;
-	j = 0;
-	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char) * 1);
-		s1[0] = '\0';
-	}
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (NULL);
-	while (s1[++i] != '\0')
-		str[i] = s1[i];
-	while (s2[j] != '\0')
-		str[i++] = s2[j++];
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
-	return (str);
-}
-
-char    *del_line(char *s)
-{
-    int     i;
-    int     j;
-    char    *new;
-
-    j = 0;
-    i = 0;
-    while (s[i] && s[i] != '\n')
-        i++;
-    if (!s[i])
-    {
-        free(s);
+    count = 1;
+    if (save == NULL)
+        save = ft_strdup("");
+    buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+    if (!buf)
         return (NULL);
+    while (!ft_haschar(save, '\n') && count != 0 && *stop < 1)
+    {
+        count = read(fd, buf, BUFFER_SIZE);
+        if (count < BUFFER_SIZE || count == 0)
+        {
+            *stop = 1;
+            if (count == 0)
+            {
+                free(buf);
+                return (save);
+            }
+        }
+        buf[count] = '\0';
+        save = ft_strjoin(save, buf);
+        if (*stop != 1)
+        {
+            free(buf);
+            buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+        }
     }
-    new = malloc(sizeof(char) * (ft_strlen(s) - i));
-    i++;
-    while (s[i])
-        new[j++] = s[i++];
-    new[j] = '\0';
-    free(s);
-    return (new);
+    free(buf);
+    return (save);
 }
 
-char    *get_line(char *s)
+char    *get_line(char *save)
 {
+    char    *line;
     int     i;
     int     j;
-    char    *line;
 
-    j = 0;
     i = 0;
-    while (s[i] && s[i] != '\n')
+    j = 0;
+
+    while (save[i] != '\0' && save[i] != '\n')
         i++;
-    line = malloc(sizeof(char) * (i + 1));
-    if (!line)
-        return (NULL);
-    while (j < i && s[j] != '\0')
+    line = malloc(sizeof(char) * (i + 2));
+    if (save[0] == '\n' && save[1] == '\0')
+        line[j++] = save[0];
+    while (j < i)
     {
-        line[j] = s[j];
+        line[j] = save[j];
+        j++;
+    }
+    if (save[j])
+    {    
+        line[j] = save[j];
         j++;
     }
     line[j] = '\0';
     return (line);
 }
 
-char    *read_buff(int fd, char *save)
+char    *cut_save(char *save)
 {
-    char    *buf;
-    int     count;
+    int     i;
+    int     j;
+    char    *new;
+    int     size;
 
-    buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-    if (!buf)
+    i = 0;
+    j = 0;
+    new = NULL;
+    if (!save)
+        return (new);
+    while (save[i] && save[i] != '\n')
+        i++;
+    if (!save[i])
     {
-        write(1, "buf malloc error\n", 17);
-        return (NULL);
+        free(save);
+        return (new);
     }
-    count = 1;
-    while (!ft_has_nl(save) && count != 0)
+    if (save[i] && save[i] == '\n')
     {
-        count = read(fd, buf, BUFFER_SIZE);
-        if (count == -1)
+        i++;
+        size = ft_strlen(save) - i;
+        if (size < 0)
+            return (new);
+        if (size == 0 && save[0] != '\n')
+        {
+            new = malloc(sizeof(char) * (2));
+            new[0] = '\n';
+            new[1] = '\0';
+            free(save);
+            return (new);
+        }
+        if (size == 0)
         {
             free(save);
-            free(buf);
             return (NULL);
         }
-        buf[count] = '\0';
-        save = ft_strjoin_gnl(save, buf);
+        new = malloc(sizeof(char) * (size + 1));
+        while (save[i] && j < size)
+        {
+            new[j] = save[i];
+            j++;
+            i++;
+        }
+        new[j] = '\0';
     }
-    free(buf);
-    return (save);
+    free(save);
+    return (new);
 }
 
 char    *get_next_line(int fd)
 {
     char        *line;
     static char *save;
+    static int  stop;
 
     line = NULL;
-    if (fd < 0 || BUFFER_SIZE <= 0)
+    if (fd <= 0 || BUFFER_SIZE <= 0 \
+	|| BUFFER_SIZE > 2147483646 \
+	|| stop != 0 || fd > 10240)
         return (NULL);
-    save = read_buff(fd, save);
-    if (!save)
-        return (NULL);
+    save = read_buf(save, fd, &stop);
     line = get_line(save);
-    save = del_line(save);
+    save = cut_save(save);
+    if (ft_haschar(line, '\n'))
+        stop = 0;
     return (line);
 }
 
 /*
 int main()
 {
-    int fd;
+    char    *line;
+    int     fd;
+    int     i;
 
-    fd = open("file1.fdf", O_RDONLY);
-    char *save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
-    save = get_next_line(fd);
-    printf("save = %s\n", save);
-    free(save);
+    i = 0;
+    fd = open("0", O_RDONLY);
+    line = get_next_line(fd);
+    while (line)
+    {
+        printf("line[%i] = %s", i + 1, line);
+        free(line);
+        line = get_next_line(fd);
+        i++;
+    }
+    printf("no nl gj----------------------\nthis line is (null)?? ---> line[null] = %s", line);
+    free(line);
     return (0);
 }*/

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+         #
+#    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/07 11:05:52 by rchallie          #+#    #+#              #
-#    Updated: 2019/11/07 14:41:44 by rchallie         ###   ########.fr        #
+#    Created: 2022/10/15 01:27:51 by jjesberg          #+#    #+#              #
+#    Updated: 2022/10/15 01:38:06 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,13 @@ SRCS = ft_memset.c		\
 	   ft_putstr_fd.c	\
 	   ft_putendl_fd.c	\
 	   ft_putnbr_fd.c	\
-	   ft_has_nl.c		\
+	   ft_haschar.c		\
+	   ft_atoi_base.c	\
 	   get_next_line.c	\
-	   ft_abs.c 		\
-	   ft_min.c			\
+	   ft_linelen.c		\
+	   ft_positiv.c		\
 	   ft_max.c			\
+	   ft_min.c			\
 
 SRCSB = ft_lstnew.c			\
 		ft_lstadd_front.c	\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 13:22:30 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/18 18:15:36 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:30:43 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:30:45 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

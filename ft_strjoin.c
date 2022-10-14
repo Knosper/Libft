@@ -3,36 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 14:41:14 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/23 10:30:37 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:19:47 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:19:50 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char    *ft_strjoin(char *save, char *buf)
 {
-	size_t	s1_len;
-	size_t	s2_len;
-	size_t	stot_len;
-	char	*rtn;
-
-	if (!s1 && !s2)
-		return (ft_strdup(""));
-	if (s1 && !s2)
-		return (ft_strdup(s1));
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	s1_len = ft_strlen((char *)s1);
-	s2_len = ft_strlen(s2);
-	stot_len = s1_len + s2_len + 1;
-	rtn = malloc(sizeof(char) * stot_len);
-	if (!rtn)
-		return (0);
-	ft_memmove(rtn, s1, s1_len);
-	ft_memmove(rtn + s1_len, s2, s2_len);
-	rtn[stot_len - 1] = '\0';
-	return (rtn);
+    char    *new;
+    int     i;
+    int     j;
+    int     size1;
+    int     size2;
+   
+    j = 0;
+    i = 0;
+    size1 = ft_strlen(save);
+    size2 = ft_strlen(buf);
+    new = malloc(sizeof(char) * (size1 + size2 + 1));
+    while (i < size1)
+    {
+        new[i] = save[i];
+        i++;
+    }
+    while (j < size2)
+    {
+        new[i++] = buf[j++];
+    }
+    new[i] = '\0';
+    free(save);
+    return (new);
 }

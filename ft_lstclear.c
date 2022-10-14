@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 15:15:41 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/19 19:33:22 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:31:08 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:31:10 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

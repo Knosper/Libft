@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_haschar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:07 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:09 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/10/15 01:31:49 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:31:50 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int ft_haschar(char *s, char c)
 {
-	write(fd, &c, 1);
+    int i;
+
+    i = 0;
+    if (!s)
+        return (0);
+    while (s[i])
+    {
+        if (s[i] == c)
+            return (1);
+        i++;
+    }
+    return (0);
 }

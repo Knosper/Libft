@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 17:48:39 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/23 10:03:18 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:29:21 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:29:23 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

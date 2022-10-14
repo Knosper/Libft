@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 18:17:11 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/21 16:16:43 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:30:02 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:30:04 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

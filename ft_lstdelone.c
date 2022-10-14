@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 15:00:36 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/19 19:30:37 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:31:04 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:31:06 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

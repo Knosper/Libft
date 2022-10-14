@@ -1,18 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_linelen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:07 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:09 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/10/15 01:13:54 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:26:36 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_linelen(int	fd2)
 {
-	write(fd, &c, 1);
+	char	*line;
+	int		i;
+
+	i = 0;
+	line = get_next_line(fd2);
+	if (!line)
+		return (-1);
+	else
+		i++;
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd2);
+		if (line == NULL)
+		{
+			if (i > 1)
+				i--;
+			break ;
+		}
+		i++;
+	}
+	if (line)
+		free(line);
+	return (i);
 }

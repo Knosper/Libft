@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:29:57 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/23 10:55:12 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:31:23 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:31:25 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_estim(long n)
+static int ft_estim(long n)
 {
-	size_t	estim;
-	int		isneg;
+	size_t estim;
+	int isneg;
 
 	estim = 0;
 	isneg = 0;
@@ -33,7 +33,7 @@ static int		ft_estim(long n)
 	return (estim);
 }
 
-static char		*ft_gen(char *rtn, long nbr, int len, int isneg)
+static char *ft_gen(char *rtn, long nbr, int len, int isneg)
 {
 	if (nbr != 0)
 		rtn = malloc(sizeof(char) * (len + 1));
@@ -60,12 +60,12 @@ static char		*ft_gen(char *rtn, long nbr, int len, int isneg)
 	return (rtn);
 }
 
-char			*ft_itoa(int n)
+char *ft_itoa(int n)
 {
-	int		len;
-	char	*rtn;
-	long	nbr;
-	int		isneg;
+	int len;
+	char *rtn;
+	long nbr;
+	int isneg;
 
 	nbr = n;
 	len = ft_estim(nbr);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 10:56:21 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/21 16:24:19 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:29:54 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:29:56 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

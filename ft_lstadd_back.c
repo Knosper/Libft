@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 13:38:57 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/19 14:41:59 by rchallie         ###   ########.fr       */
+/*   Created: 2022/10/15 01:31:16 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 01:31:17 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
