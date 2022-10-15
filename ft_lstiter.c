@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:00 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:02 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/12 18:28:06 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/13 16:32:40 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (!f)
 		return ;
 	while (lst)
 	{

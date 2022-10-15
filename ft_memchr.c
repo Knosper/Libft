@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:35 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:36 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:56:02 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 18:33:09 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*str;
-	size_t		i;
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	character;
 
-	str = (const char *)s;
+	character = (unsigned char)c;
 	i = 0;
+	str = (unsigned char *)s;
 	while (i < n)
 	{
-		if (str[i] == c)
-			return ((void *)(s + i));
+		if (*str == character)
+		{
+			return (str);
+		}
 		i++;
+		str++;
 	}
-	return (0);
+	return (NULL);
 }

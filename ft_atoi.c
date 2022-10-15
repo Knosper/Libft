@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:32:01 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:32:02 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:59:38 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/08/02 22:09:45 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-	long	i;
-	long	nbr;
-	int		isneg;
+	int		sign;
+	size_t	i;
+	int		sum;
+	int		j;
 
+	j = 0;
+	sum = 0;
+	sign = 1;
 	i = 0;
-	nbr = 0;
-	isneg = 0;
-	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'\
+	|| str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
 		i++;
-	if (str[i] != '\0' && str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		isneg = 1;
+		if (str[i] == '-')
+		{
+			sign = sign * -1;
+		}
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		nbr = (nbr * 10) + (str[i++] - '0');
-	if (isneg == 1)
-		return (-nbr);
-	return (nbr);
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		sum = (sum * 10) + (str[i++] - '0');
+	}
+	return (sign * sum);
 }

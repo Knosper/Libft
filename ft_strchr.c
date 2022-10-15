@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:29:44 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:29:46 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:53:15 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 14:38:04 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -23,5 +25,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (s[i] == c)
 		return ((char *)s + i);
-	return (0);
+	return (NULL);
 }

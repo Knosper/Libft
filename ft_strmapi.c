@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:29:10 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:29:10 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/11 13:09:50 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/13 16:38:03 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*rtn;
+	char	*arr;
+	int		i;
 
 	i = 0;
-	if (!s || (!s && !f))
-		return (ft_strdup(""));
-	else if (!f)
-		return (ft_strdup(s));
-	rtn = ft_strdup(s);
-	if (!rtn)
-		return (rtn = NULL);
+	arr = (char *)malloc(sizeof(char) * (ft_strlen(s)) + 1);
+	if (!arr)
+		return (NULL);
 	while (s[i])
 	{
-		rtn[i] = (*f)(i, s[i]);
+		arr[i] = f(i, s[i]);
 		i++;
 	}
-	return (rtn);
+	arr[i] = '\0';
+	return (arr);
 }

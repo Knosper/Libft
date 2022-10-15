@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:04 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:06 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/12 18:13:14 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/19 14:33:57 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	(del)(lst->content);
+	del(lst->content);
 	free(lst);
 }

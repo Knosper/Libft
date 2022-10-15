@@ -5,22 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:29:40 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:29:42 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 14:01:18 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/09/03 14:20:01 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *src)
 {
-	char	*rtn;
-	size_t	len;
+	size_t	i;
+	size_t	size;
+	char	*arr;
 
-	len = ft_strlen(s1) + 1;
-	rtn = malloc(sizeof(char) * len);
-	if (!rtn)
-		return (0);
-	rtn = ft_memcpy(rtn, s1, len);
-	return (rtn);
+	size = ft_strlen(src);
+	arr = (char *)malloc(sizeof(char) * (size + 1));
+	i = 0;
+	if (!arr)
+	{
+		return (NULL);
+	}
+	while (src[i])
+	{
+		arr[i] = src[i];
+		i++;
+	}
+	arr[i] = '\0';
+	return (arr);
 }

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front copy.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:12 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:13 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/20 18:07:31 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 14:30:07 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!alst || !new)
+	if (!lst || !new)
 		return ;
-	new->next = *alst;
-	*alst = new;
+	new->next = *lst;
+	*lst = new;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:39 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:41 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/24 15:25:52 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/24 16:13:18 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char		cuc;
-	unsigned char		*dstc;
-	const unsigned char	*srccc;
-	size_t				i;
+	size_t			i;
+	unsigned char	*dst2;
+	unsigned char	*src2;
+	unsigned char	c2;
 
-	cuc = (unsigned char)c;
-	dstc = (unsigned char *)dst;
-	srccc = (const unsigned char*)src;
 	i = 0;
-	while (i < n)
+	dst2 = (unsigned char *)dst;
+	src2 = (unsigned char *)src;
+	c2 = c;
+	while (i < n && (dst || src))
 	{
-		dstc[i] = srccc[i];
-		if (srccc[i] == cuc)
-			return (dst + i + 1);
+		dst2[i] = src2[i];
+		if (src2[i] == c2)
+		{
+			return (dst + (i + 1));
+		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

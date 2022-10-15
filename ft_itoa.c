@@ -5,73 +5,124 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:23 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:25 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/09/09 15:22:53 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/11 12:57:07 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_estim(long n)
+int	ft_digit_len(int n)
 {
-	size_t estim;
-	int isneg;
+	int		sign;
+	int		i;
 
-	estim = 0;
-	isneg = 0;
+	i = 0;
+	sign = 0;
+	if (!n)
+		return (0);
 	if (n < 0)
 	{
-		estim++;
-		isneg++;
-		n = -n;
+		sign = 1;
+		n = n * -1;
 	}
-	while (n >= 1)
+	while (n != 0)
 	{
-		estim++;
-		n /= 10;
+		n = n / 10;
+		i++;
 	}
-	return (estim);
+	return (i + sign);
 }
 
-static char *ft_gen(char *rtn, long nbr, int len, int isneg)
+char	*ft_positiv_letters(int n, int count)
 {
-	if (nbr != 0)
-		rtn = malloc(sizeof(char) * (len + 1));
-	else
-		return (rtn = ft_strdup("0"));
-	if (!rtn)
+	char	*letters;
+	int		i;
+
+	i = 0;
+	letters = (char *)malloc(sizeof(char) * (count + 1));
+	if (!letters)
 		return (0);
-	isneg = 0;
-	if (nbr < 0)
+	letters[count] = '\0';
+	i = count;
+	while (i >= 1)
 	{
-		isneg++;
-		nbr = -nbr;
+		i--;
+		letters[i] = n % 10 + '0';
+		n = n / 10;
 	}
-	rtn[len] = '\0';
-	while (--len)
-	{
-		rtn[len] = (nbr % 10) + '0';
-		nbr /= 10;
-	}
-	if (isneg == 1)
-		rtn[0] = '-';
-	else
-		rtn[0] = (nbr % 10) + '0';
-	return (rtn);
+	return (letters);
 }
 
-char *ft_itoa(int n)
+char	*ft_negativ_letters(int n, int count)
 {
-	int len;
-	char *rtn;
-	long nbr;
-	int isneg;
+	char	*letters;
+	int		i;
 
-	nbr = n;
-	len = ft_estim(nbr);
-	rtn = 0;
-	isneg = 0;
-	if (!(rtn = ft_gen(rtn, nbr, len, isneg)))
+	letters = NULL;
+	i = 0;
+	letters = (char *)malloc(sizeof(char) * (count + 1));
+	if (!letters)
 		return (0);
-	return (rtn);
+	letters[count] = '\0';
+	i = count - 1;
+	letters[0] = '-';
+	while (i > 0)
+	{
+		letters[i] = n % 10 + '0';
+		n = n / 10;
+		i--;
+	}
+	return (letters);
+}
+
+char	*ft_check_int(int n)
+{
+	char	*letters;
+
+	letters = NULL;
+	if (n == 0)
+	{
+		letters = (char *)malloc(sizeof(char) * (2));
+		letters[0] = '0';
+		letters[1] = '\0';
+		return (letters);
+	}
+	if (n >= 2147483647 || n <= -2147483648)
+	{
+		if (n == -2147483648)
+			letters = ft_strdup("-2147483648");
+		else
+			letters = ft_strdup("2147483647");
+		return (letters);
+	}
+	return ("x");
+}
+
+char	*ft_itoa(int n)
+{
+	int		count;
+	int		sign;
+	char	*letters;
+
+	letters = NULL;
+	if (n == 0 || n >= 2147483647 || n <= -2147483648)
+	{
+		letters = ft_check_int(n);
+		return (letters);
+	}
+	sign = 0;
+	count = ft_digit_len(n);
+	if (n < 0)
+	{
+		sign = -1;
+		n = n * -1;
+	}
+	if (sign == -1)
+		letters = ft_negativ_letters(n, count);
+	else if (sign == 0)
+		letters = ft_positiv_letters(n, count);
+	if (!letters)
+		return (0);
+	return (letters);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_substr copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:28:39 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:28:41 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 14:05:56 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 14:42:16 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*rtn;
-	size_t	i;
+	size_t		i;
+	size_t		j;
+	size_t		size;
+	char		*arr;
 
-	if (!s)
-		return (NULL);
-	if ((size_t)start > ft_strlen(s))
+	arr = NULL;
+	j = 0;
+	size = ft_strlen(s);
+	if (start > size || size == 0 || len == 0)
 		return (ft_strdup(""));
-	rtn = malloc(sizeof(char) * (len + 1));
-	i = 0;
-	if (!rtn)
-		return (0);
-	while (i < len)
-	{
-		rtn[i] = *(s + start + i);
-		i++;
-	}
-	rtn[i] = '\0';
-	return (rtn);
+	if (len > size - start)
+		arr = malloc(sizeof(char) * (size - start + 1));
+	else if (len <= size - start)
+		arr = malloc(sizeof(char) * (len + 1));
+	i = start;
+	if (!arr)
+		return (NULL);
+	while (j < len && i < ft_strlen(s))
+		arr[j++] = s[i++];
+	arr[j] = '\0';
+	return (arr);
 }

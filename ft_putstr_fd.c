@@ -5,19 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:29:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:29:56 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/11 13:35:48 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/11 14:57:06 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	unsigned int	i;
 
 	i = 0;
-	if (s)
-		while (s[i] != '\0')
-			write(fd, &s[i++], 1);
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

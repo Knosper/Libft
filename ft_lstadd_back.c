@@ -5,22 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:16 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:17 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/20 18:06:25 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/20 18:06:27 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *t;
-
-	if (*alst)
-	{
-		t = ft_lstlast(*alst);
-		t->next = &*new;
-	}
+	if (lst == 0 || new == 0)
+		return ;
+	if (*lst == 0)
+		*lst = new;
 	else
-		*alst = new;
+		ft_lstlast(*lst)->next = new;
 }

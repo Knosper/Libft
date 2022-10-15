@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:40 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:41 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/19 15:14:10 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 18:34:10 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include "libft.h"
+
+int	ft_isalpha(int c)
 {
 	return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
 }

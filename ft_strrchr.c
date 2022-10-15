@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:28:50 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:28:52 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 15:02:11 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/13 15:09:05 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	char	*ptr;
+	size_t	slen;
 
-	i = 0;
-	ptr = 0;
-	while (s[i])
+	slen = ft_strlen(s);
+	if ((char) c == '\0')
+		return ((char *) s + slen);
+	while (slen--)
 	{
-		if (s[i] == c)
-			ptr = (char *)(s + i);
-		i++;
+		if (*(s + slen) == (char) c)
+			return ((char *) s + slen);
 	}
-	if (s[i] == c)
-		ptr = (char *)(s + i);
-	return (ptr);
+	return (0);
 }

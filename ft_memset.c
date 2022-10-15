@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memset copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:16 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:18 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:45:57 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 14:34:59 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *s, int c, size_t len)
 {
-	size_t			i;
-	unsigned char	*buc;
+	size_t	i;
 
 	i = 0;
-	buc = (unsigned char *)b;
 	while (i < len)
-	{
-		buc[i] = c;
-		i++;
-	}
-	return (b = buc);
+		((char *)s)[i++] = (unsigned char)c;
+	return (s);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:48 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:50 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/11 14:52:08 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/11 15:25:34 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *rtn;
+	t_list			*new;
 
-	rtn = (t_list *)malloc(sizeof(t_list));
-	if (!rtn)
-		return (rtn = NULL);
-	rtn->next = NULL;
-	rtn->content = content;
-	return (rtn);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return (new = NULL);
+	new->next = NULL;
+	new->content = content;
+	return (new);
 }
-
-/*
-#include "stdio.h"
-int main(void)
-{
-	char s[] = "Hallo";
-
-	t_list *elem;
-	elem = ft_lstnew(s);
-	printf("%s\n", (char*)elem->content);
-}
-*/

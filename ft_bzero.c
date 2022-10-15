@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:31:56 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:31:58 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:35:00 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 18:34:02 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
-	unsigned char	*suc;
+	unsigned char	*arr;
 
+	arr = (unsigned char *) s;
 	i = 0;
-	suc = (unsigned char *)s;
 	while (i < n)
 	{
-		suc[i] = 0;
+		*arr++ = 0;
 		i++;
 	}
-	s = suc;
 }

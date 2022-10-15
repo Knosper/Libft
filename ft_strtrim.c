@@ -5,44 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:28:45 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:28:47 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 14:26:43 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 19:02:28 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		is_in_set(char c, const char *set)
+static int	ft_inset(char c, const char *set)
 {
-	while (*set)
-		if (c == *set++)
-			return (0);
-	return (1);
+	size_t	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	char	*rtn;
+	size_t	j;
+	char	*arr;
 
-	if (!s1)
-		return (NULL);
-	if (!set)
-		return (ft_strdup(s1));
 	start = 0;
-	end = ft_strlen(s1);
-	while (is_in_set(s1[start], set) == 0)
-		start++;
-	if (start == ft_strlen(s1))
+	while (s1[start] && ft_inset(s1[start], set))
 	{
-		if (!(rtn = ft_strdup("")))
-			return (NULL);
-		else
-			return (rtn);
+		start++;
 	}
-	while (is_in_set(s1[end - 1], set) == 0)
+	end = ft_strlen(s1);
+	while (end > start && ft_inset(s1[end - 1], set))
+	{
 		end--;
-	rtn = ft_substr(s1, start, end - start);
-	return (rtn);
+	}
+	arr = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (!arr)
+		return (NULL);
+	j = 0;
+	while (start < end)
+	{
+		arr[j++] = s1[start++];
+	}
+	arr[j] = 0;
+	return (arr);
 }

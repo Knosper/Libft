@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:29:00 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:29:02 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:55:15 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/16 14:34:14 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
-
-	i = 0;
+	while (n > 0 && *s1 != '\0' && *s2 != '\0')
+	{
+		if (*s1 != *s2)
+			break ;
+		s1++;
+		s2++;
+		n--;
+	}
 	if (n == 0)
 		return (0);
-	while (i < n - 1 && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (((unsigned char)*s1 - (unsigned char)*s2));
 }

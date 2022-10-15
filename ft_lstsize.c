@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:43 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:45 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/11 15:44:15 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/11 15:59:51 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		i;
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:30:52 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:54 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/10/12 18:38:38 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/10/16 15:02:47 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,20 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_list;
-	t_list *save;
+	t_list	*new;
+	t_list	*tmp;
 
-	if (!lst || !f || !del)
-		return (0);
-	new_list = ft_lstnew(f(lst->content));
-	if (!new_list)
-		return (0);
-	save = new_list;
-	lst = lst->next;
-	while (lst)
+	new = 0;
+	while (lst != 0)
 	{
-		new_list->next = ft_lstnew(f(lst->content));
-		if (!new_list->next)
+		if (lst->content != 0)
 		{
-			ft_lstclear(&save, del);
-			return (0);
+			tmp = ft_lstnew(f(lst->content));
+			ft_lstadd_back(&new, tmp);
 		}
-		new_list = new_list->next;
+		else
+			ft_lstclear(&new, del);
 		lst = lst->next;
 	}
-	new_list->next = NULL;
-	return (save);
+	return (new);
 }

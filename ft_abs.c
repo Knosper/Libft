@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 17:23:01 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/08/30 18:34:14 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/08/01 21:36:10 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/08/01 21:36:11 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int n)
+int	ft_abs(int n)
 {
-	return (n >= 48 && n <= 57);
+	if (n < 0)
+		return (n *= -1);
+	return (n);
 }

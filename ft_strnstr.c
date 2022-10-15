@@ -5,33 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:28:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:28:56 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/08/23 13:58:41 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 18:34:58 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
 	size_t	i;
-	size_t	c;
-	size_t	n_len;
-	char	*hay;
+	size_t	j;
 
 	i = 0;
-	hay = (char *)haystack;
-	n_len = ft_strlen(needle);
-	if (n_len == 0 || haystack == needle)
-		return (hay);
-	while (hay[i] != '\0' && i < len)
+	if (needle[i] == '\0')
 	{
-		c = 0;
-		while (hay[i + c] != '\0' && needle[c] != '\0'
-				&& hay[i + c] == needle[c] && i + c < len)
-			c++;
-		if (c == n_len)
-			return (hay + i);
+		return ((char *)haystack);
+	}
+	while (haystack[i] != '\0' && n >= ft_strlen(needle))
+	{
+		j = 0;
+		while (needle[j] == haystack[i + j] && i + j < n)
+		{
+			if (needle[j + 1] == '\0')
+			{
+				return ((char *)haystack + i);
+			}
+			j++;
+		}
 		i++;
 	}
 	return (0);
