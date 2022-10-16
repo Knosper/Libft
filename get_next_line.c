@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 02:18:25 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 14:54:19 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:09:27 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ char    *read_buf(char *save, int fd, int *stop)
 	char    *buf;
 	int     count;
 
-	int     i;
 	count = 1;
-	i = 0;
 	if (save == NULL)
 		save = ft_strdup("");
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));

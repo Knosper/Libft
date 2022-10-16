@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 13:59:38 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/08/02 22:09:45 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:08:55 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	ft_atoi(const char *str)
 	int		sign;
 	size_t	i;
 	int		sum;
-	int		j;
 
-	j = 0;
 	sum = 0;
 	sign = 1;
 	i = 0;

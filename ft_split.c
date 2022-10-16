@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:45:25 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 14:50:16 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:09:16 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ static char	**ft_malloc_error(char **tab)
 int	ft_get_next_str(char **str, char c, int *wordlen)
 {
 	int	i;
-	int	j;
 
-	j = 0;
 	i = 0;
 	*str = *str + *wordlen;
 	*wordlen = 0;

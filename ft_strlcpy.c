@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 13:43:33 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/11 17:42:59 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:08:41 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	j;
 
-	j = 0;
 	i = 0;
 	if (dstsize == 0)
 	{
