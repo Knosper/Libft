@@ -6,13 +6,13 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 01:13:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:26:36 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/18 07:09:51 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_linelen(int	fd2)
+int	ft_linelen(int fd2)
 {
 	char	*line;
 	int		i;

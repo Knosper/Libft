@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 01:29:58 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 01:30:00 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/18 07:12:28 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char c;
+	char	c;
 
 	if (n == -2147483648)
 		write(fd, "-2147483648", 11);

@@ -6,16 +6,16 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 02:18:25 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/18 05:09:36 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/18 07:12:04 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *read_buf(char *save, int fd, int *stop)
+char	*read_buf(char *save, int fd, int *stop)
 {
-	char    *buf;
-	int     count;
+	char	*buf;
+	int		count;
 
 	count = 1;
 	if (save == NULL)
@@ -47,15 +47,14 @@ char    *read_buf(char *save, int fd, int *stop)
 	return (save);
 }
 
-char    *get_line(char *save)
+char	*get_line(char *save)
 {
-	char    *line;
-	int     i;
-	int     j;
+	char	*line;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
-
 	while (save[i] != '\0' && save[i] != '\n')
 		i++;
 	line = malloc(sizeof(char) * (i + 2));
@@ -69,7 +68,7 @@ char    *get_line(char *save)
 		j++;
 	}
 	if (save[j])
-	{    
+	{
 		line[j] = save[j];
 		j++;
 	}
@@ -77,7 +76,7 @@ char    *get_line(char *save)
 	return (line);
 }
 
-char    *cut_save(char *save)
+char	*cut_save(char *save)
 {
 	int		i;
 	int		j;
@@ -137,7 +136,8 @@ char	*get_next_line(int fd)
 	static int	stop;
 
 	line = NULL;
-	if (fd <= 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483646 || stop != 0 || fd > 10240)
+	if (fd <= 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483646 \
+	|| stop != 0 || fd > 10240)
 		return (NULL);
 	save = read_buf(save, fd, &stop);
 	line = get_line(save);
