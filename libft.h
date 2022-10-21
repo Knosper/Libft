@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 01:27:35 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/21 14:49:10 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:02:04 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 void				ft_cleansplit(char **split);
 
+int					ft_splitlen(char **s);
 int					ft_atoi_base(char *str, int str_base);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_isalpha(int c);
@@ -69,6 +70,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
+char				**ft_splitdup(char **s);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
