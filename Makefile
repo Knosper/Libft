@@ -6,7 +6,7 @@
 #    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 01:27:51 by jjesberg          #+#    #+#              #
-#    Updated: 2022/10/15 01:38:06 by jjesberg         ###   ########.fr        #
+#    Updated: 2022/10/21 14:48:55 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRCS = ft_memset.c		\
 	   ft_positiv.c		\
 	   ft_max.c			\
 	   ft_min.c			\
+	   ft_cleansplit.c	\
 
 SRCSB = ft_lstnew.c			\
 		ft_lstadd_front.c	\

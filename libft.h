@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 01:27:35 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 14:53:21 by jjesberg         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:49:10 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_calloc(size_t count, size_t size);
+void				ft_cleansplit(char **split);
 
 int					ft_atoi_base(char *str, int str_base);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
