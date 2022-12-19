@@ -6,7 +6,7 @@
 #    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 01:27:51 by jjesberg          #+#    #+#              #
-#    Updated: 2022/12/19 03:31:27 by jjesberg         ###   ########.fr        #
+#    Updated: 2022/12/19 05:18:22 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS = ft_memset.c		\
 	   ft_haschar.c		\
 	   ft_atoi_base.c	\
 	   get_next_line.c	\
+	   get_next_line_utils.c	\
 	   ft_linelen.c		\
 	   ft_positiv.c		\
 	   ft_max.c			\
