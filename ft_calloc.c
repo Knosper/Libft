@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 14:00:25 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/08/01 19:26:57 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/09/09 13:33:26 by jroth             #+#    #+#             */
+/*   Updated: 2022/04/20 19:17:04 by jroth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	*arr;
-	size_t	i;
+	size_t		len;
+	char		*ptr;
 
-	arr = malloc(size * nmemb);
-	i = 0;
-	if (!arr)
+	len = size * count;
+	ptr = malloc(len);
+	if (ptr == NULL)
 		return (NULL);
-	while (i < nmemb * size)
+	while (len > 0)
 	{
-		((char *)arr)[i] = 0;
-		i++;
+		ptr[len - 1] = 0;
+		len--;
 	}
-	return (arr);
+	return ((void *)ptr);
 }

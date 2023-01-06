@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front copy.c                             :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
+/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 18:07:31 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/15 14:30:07 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/09/16 14:12:42 by jroth             #+#    #+#             */
+/*   Updated: 2021/09/16 17:42:02 by jroth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!lst || !new)
+	if (!new)
 		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}	
 	new->next = *lst;
 	*lst = new;
 }

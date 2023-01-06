@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 18:13:14 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/19 14:33:57 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/09/16 16:28:37 by jroth             #+#    #+#             */
+/*   Updated: 2021/09/16 18:24:51 by jroth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
+	if (!lst || !del)
 		return ;
-	del(lst->content);
-	free(lst);
+	lst->next = NULL;
+	(del)(lst->content);
+	(del)(lst);
 }

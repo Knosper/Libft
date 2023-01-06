@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 13:59:38 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/10/18 05:08:48 by jjesberg         ###   ########.fr       */
+/*   Created: 2021/09/09 15:32:14 by jroth             #+#    #+#             */
+/*   Updated: 2022/03/18 16:13:03 by jroth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 int	ft_atoi(const char *str)
 {
-	int		sign;
-	size_t	i;
-	int		sum;
+	int	res;
+	int	neg;
 
-	sum = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'\
-	|| str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == ' ' || *str == '\n' || *str == '\t'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	neg = 1;
+	if (*str == '-')
+		neg = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	res = 0;
+	while (*str)
 	{
-		if (str[i] == '-')
-		{
-			sign = sign * -1;
-		}
-		i++;
+		if (*str >= 48 && *str <= 57)
+			res = res * 10 + *str - 48;
+		else
+			break ;
+		str++;
 	}
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		sum = (sum * 10) + (str[i++] - '0');
-	}
-	return (sign * sum);
+	return (res * neg);
 }
