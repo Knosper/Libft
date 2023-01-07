@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_print_split.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 13:42:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/11 17:56:36 by jjesberg         ###   ########.fr       */
+/*   Created: 2023/01/05 09:00:47 by jjesberg          #+#    #+#             */
+/*   Updated: 2023/01/07 01:51:36 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_print_split(char **s)
 {
-	size_t			i;
-	unsigned char	*dest2;
-	unsigned char	*src2;
+	int		i;
+	int		j;
 
-	src2 = (unsigned char *)src;
-	dest2 = (unsigned char *)dst;
 	i = 0;
-	while (i < n && (dst != NULL || src != NULL))
+	j = 0;
+	while (s[i])
 	{
-		dest2[i] = src2[i];
+		while (s[i][j])
+			j += write(1, &s[i][j], 1);
+		write(1, " ", 1);
+		j = 0;
 		i++;
 	}
-	return (dst);
 }

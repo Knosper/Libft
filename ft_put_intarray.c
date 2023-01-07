@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_put_intarray.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 13:42:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/11 17:56:36 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/08/01 20:48:26 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/08/01 21:36:56 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_put_intarray(int *array, int len)
 {
-	size_t			i;
-	unsigned char	*dest2;
-	unsigned char	*src2;
+	int	i;
 
-	src2 = (unsigned char *)src;
-	dest2 = (unsigned char *)dst;
 	i = 0;
-	while (i < n && (dst != NULL || src != NULL))
+	write(1, "int array = \n", 14);
+	while (i < len)
 	{
-		dest2[i] = src2[i];
-		i++;
+		ft_putnbr_fd(array[i++], 1);
+		write(1, "\n", 1);
 	}
-	return (dst);
 }

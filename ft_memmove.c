@@ -3,33 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 14:28:15 by jroth             #+#    #+#             */
-/*   Updated: 2021/09/09 18:25:09 by jroth            ###   ########.fr       */
+/*   Created: 2021/08/23 13:51:04 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 18:34:25 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	const char	*ptr_s;
-	char		*ptr_d;
+	size_t				i;
+	size_t				j;
+	char				*src2;
+	char				*dest2;
 
-	if (dst > src)
+	i = 0;
+	j = n;
+	dest2 = (char *)dest;
+	src2 = (char *)src;
+	if (!src2 && !dest2)
+		return (NULL);
+	if (dest2 > src2)
 	{
-		ptr_s = src + (n - 1);
-		ptr_d = dst + (n - 1);
+		while (j-- > 0)
+		{
+			((char *)dest2)[j] = ((char *)src2)[j];
+		}
 	}
-	else
-		return (ft_memcpy(dst, (void *)src, n));
-	while (n > 0)
+	while (i < n && src2 > dest2)
 	{
-		*ptr_d = *ptr_s;
-		ptr_d--;
-		ptr_s--;
-		n--;
+		((char *)dest2)[i] = ((char *)src2)[i];
+		i++;
 	}
-	return (dst);
+	return (dest);
 }

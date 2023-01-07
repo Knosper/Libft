@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdupn.c                                       :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 19:48:23 by jroth             #+#    #+#             */
-/*   Updated: 2022/03/19 18:09:10 by jroth            ###   ########.fr       */
+/*   Created: 2022/08/01 21:36:31 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/08/01 21:39:51 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdupn(const char *s1, int n)
+int	ft_min(int *array, int size)
 {
-	char		*s2;
-	int			i;
+	int	i;
+	int	min;
 
-	s2 = malloc(sizeof(char) * n + 1);
-	if (!s2)
-		return ((char *) NULL);
 	i = 0;
-	while (i < n)
+	min = array[0];
+	while (i < size)
 	{
-		s2[i] = s1[i];
+		if (array[i] < min)
+			min = array[i];
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (min);
 }

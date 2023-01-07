@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_haschar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 13:42:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/11 17:56:36 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/10/15 01:31:49 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/18 07:09:59 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_haschar(char *s, char c)
 {
-	size_t			i;
-	unsigned char	*dest2;
-	unsigned char	*src2;
+	int	i;
 
-	src2 = (unsigned char *)src;
-	dest2 = (unsigned char *)dst;
 	i = 0;
-	while (i < n && (dst != NULL || src != NULL))
+	if (!s)
+		return (0);
+	while (s[i])
 	{
-		dest2[i] = src2[i];
+		if (s[i] == c)
+			return (1);
 		i++;
 	}
-	return (dst);
+	return (0);
 }

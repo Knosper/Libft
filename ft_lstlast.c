@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast copy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 15:01:34 by jroth             #+#    #+#             */
-/*   Updated: 2021/09/16 15:08:50 by jroth            ###   ########.fr       */
+/*   Created: 2021/10/11 15:46:39 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/10/15 14:32:37 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
+	int	i;
+
+	i = 0;
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
 	return (lst);
 }

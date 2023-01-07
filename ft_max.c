@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 13:42:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/11 17:56:36 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/08/01 21:36:20 by jjesberg          #+#    #+#             */
+/*   Updated: 2022/08/01 21:36:21 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_max(int *array, int size)
 {
-	size_t			i;
-	unsigned char	*dest2;
-	unsigned char	*src2;
+	int	i;
+	int	max;
 
-	src2 = (unsigned char *)src;
-	dest2 = (unsigned char *)dst;
 	i = 0;
-	while (i < n && (dst != NULL || src != NULL))
+	max = array[0];
+	while (i < size)
 	{
-		dest2[i] = src2[i];
+		if (array[i] > max)
+			max = array[i];
 		i++;
 	}
-	return (dst);
+	return (max);
 }

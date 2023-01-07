@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_linelen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 13:42:54 by jjesberg          #+#    #+#             */
-/*   Updated: 2021/10/11 17:56:36 by jjesberg         ###   ########.fr       */
+/*   Created: 2022/10/15 01:13:54 by jjesberg          #+#    #+#             */
+/*   Updated: 2023/01/06 21:43:06 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_linelen(int fd2)
 {
-	size_t			i;
-	unsigned char	*dest2;
-	unsigned char	*src2;
+	char	*line;
+	int		i;
 
-	src2 = (unsigned char *)src;
-	dest2 = (unsigned char *)dst;
 	i = 0;
-	while (i < n && (dst != NULL || src != NULL))
+	line = get_next_line(fd2, 0);
+	if (!line)
+		return (-1);
+	else
+		i++;
+	while (line)
 	{
-		dest2[i] = src2[i];
+		free(line);
+		line = get_next_line(fd2, 0);
+		if (line == NULL)
+		{
+			if (i > 1)
+				i--;
+			break ;
+		}
 		i++;
 	}
-	return (dst);
+	if (line)
+		free(line);
+	return (i);
 }

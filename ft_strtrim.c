@@ -3,49 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroth <jroth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 14:58:22 by jroth             #+#    #+#             */
-/*   Updated: 2021/09/15 17:39:02 by jroth            ###   ########.fr       */
+/*   Created: 2021/08/23 14:26:43 by jjesberg          #+#    #+#             */
+/*   Updated: 2021/08/30 19:02:28 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_ischaracter(char c, char const *set)
+static int	ft_inset(char c, const char *set)
 {
-	while (*set)
+	size_t	i;
+
+	i = 0;
+	while (set[i])
 	{
-		if (c == *set)
+		if (set[i] == c)
 			return (1);
-		set++;
+		i++;
 	}
 	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trim;
-	size_t	i;
+	size_t	start;
+	size_t	end;
 	size_t	j;
-	size_t	size;
+	char	*arr;
 
-	if (!s1)
-		return (NULL);
-	size = ft_strlen(s1);
-	j = size - 1;
-	i = 0;
-	while (ft_ischaracter(s1[i], set) == 1 && s1[i])
-		i++;
-	while (ft_ischaracter(s1[j], set) == 1 && j > i)
-		j--;
-	size = j - i + 1;
-	trim = (char *)malloc(sizeof(char) * (size + 1));
-	if (!trim)
+	start = 0;
+	while (s1[start] && ft_inset(s1[start], set))
+	{
+		start++;
+	}
+	end = ft_strlen(s1);
+	while (end > start && ft_inset(s1[end - 1], set))
+	{
+		end--;
+	}
+	arr = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (!arr)
 		return (NULL);
 	j = 0;
-	while (j < size)
-		trim[j++] = s1[i++];
-	trim[j] = '\0';
-	return (trim);
+	while (start < end)
+	{
+		arr[j++] = s1[start++];
+	}
+	arr[j] = 0;
+	return (arr);
 }
