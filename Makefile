@@ -6,7 +6,7 @@
 #    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 02:59:52 by jjesberg          #+#    #+#              #
-#    Updated: 2023/01/07 03:03:37 by jjesberg         ###   ########.fr        #
+#    Updated: 2023/01/07 03:17:42 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = 	ft_memset.c		\
 		ft_isalnum.c		\
 		ft_isascii.c		\
 		ft_isprint.c		\
+		ft_ispath.c		\
 		ft_toupper.c		\
 		ft_tolower.c		\
 		ft_atoi.c		\
