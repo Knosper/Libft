@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:24:04 by jjesberg          #+#    #+#             */
-/*   Updated: 2023/04/07 14:29:54 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:34:16 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int ft_has_set(char *s, char *set)
 				return (1);
 			j++;
 		}
+		i++;
 	}
 	return (0);
 }
