@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
+#    By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 02:59:52 by jjesberg          #+#    #+#              #
-#    Updated: 2023/01/07 03:17:42 by jjesberg         ###   ########.fr        #
+#    Updated: 2023/04/07 14:28:49 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRCS = 	ft_memset.c		\
 		ft_strlcat.c		\
 		ft_strnstr.c		\
 		ft_haschar.c		\
+		ft_has_set.c		\
 		ft_atoi_base.c	\
 		get_next_line.c	\
 		get_next_line_utils.c	\
