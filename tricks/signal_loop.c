@@ -23,7 +23,7 @@ int main()
         printf("running\n");
         if (handler(0) == 1)
         {
-            printf("Closing fd\n");
+            printf("Shut down\n");
             break ;
         }
     }
