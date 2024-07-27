@@ -60,7 +60,7 @@ int					ft_tolower(int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
 int					ft_haschar(char *s, char c);
-int					ft_has_set(char *s, char *set);
+int 				ft_has_set(const char *s, const char *set);
 int					ft_linelen(int fd2);
 int					ft_positiv(int n);
 int					ft_max(int *array, int size);
