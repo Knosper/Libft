@@ -1,101 +1,89 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/07 02:59:52 by jjesberg          #+#    #+#              #
-#    Updated: 2023/04/07 14:28:49 by jjesberg         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-SRCS = 	ft_memset.c		\
-		ft_bzero.c		\
-		ft_memcpy.c		\
-		ft_memccpy.c		\
-		ft_memmove.c 	\
-		ft_memchr.c		\
-		ft_memcmp.c		\
-		ft_strlen.c		\
-		ft_isalpha.c 	\
-		ft_isdigit.c		\
-		ft_isalnum.c		\
-		ft_isascii.c		\
-		ft_isprint.c		\
-		ft_ispath.c		\
-		ft_toupper.c		\
-		ft_tolower.c		\
-		ft_atoi.c		\
-		ft_calloc.c		\
-		ft_strdup.c		\
-		ft_substr.c		\
-		ft_strjoin.c 	\
-		ft_strjoin_dl.c 	\
-		ft_strtrim.c		\
-		ft_itoa.c		\
-		ft_strmapi.c		\
-		ft_print_split.c	\
-		ft_put_intarray.c	\
-		ft_putchar_fd.c	\
-		ft_putendl_fd.c	\
-		ft_putnbr_fd.c	\
-		ft_putstr_fd.c	\
-		ft_split.c		\
-		ft_splitdup.c	\
-		ft_splitlen.c	\
-		ft_strchr.c		\
-		ft_strrchr.c		\
-		ft_strncmp.c		\
-		ft_strlcpy.c		\
-		ft_strlcat.c		\
-		ft_strnstr.c		\
-		ft_haschar.c		\
-		ft_has_set.c		\
-		ft_atoi_base.c	\
-		get_next_line.c	\
-		get_next_line_utils.c	\
-		ft_linelen.c		\
-		ft_positiv.c		\
-		ft_max.c			\
-		ft_min.c			\
-		ft_cleansplit.c	\
-
-SRCSB = ft_lstnew.c			\
-		ft_lstadd_front.c	\
-		ft_lstsize.c		\
-		ft_lstlast.c		\
-		ft_lstadd_back.c	\
-		ft_lstclear.c		\
-		ft_lstdelone.c		\
-		ft_lstiter.c		\
-		ft_lstmap.c			
-
 NAME = libft.a
 
-OBJS = $(SRCS:.c=.o)
-
-OBJSB = $(OBJS) $(SRCSB:.c=.o)
-
 CC = gcc
+CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
-CC_FLAGS = -c -Wall -Wextra -Werror
+OBJDIR = build
 
-$(NAME): $(OBJS)
-	$(CC) $(CC_FLAGS) $(SRCS)
-	@ar r $(NAME) $(OBJS)
-	rm -rf *.o 
+SRCS = 	ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memccpy.c \
+		ft_memmove.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_strlen.c \
+		ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_ispath.c \
+		ft_toupper.c \
+		ft_tolower.c \
+		ft_atoi.c \
+		ft_abs.c \
+		ft_calloc.c \
+		ft_strdup.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strjoin_dl.c \
+		ft_strtrim.c \
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_print_split.c \
+		ft_put_intarray.c \
+		ft_putchar_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+		ft_putstr_fd.c \
+		ft_split.c \
+		ft_splitdup.c \
+		ft_splitlen.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strncmp.c \
+		ft_strlcpy.c \
+		ft_strlcat.c \
+		ft_strnstr.c \
+		ft_haschar.c \
+		ft_has_set.c \
+		ft_atoi_base.c \
+		get_next_line.c \
+		get_next_line_utils.c \
+		ft_linelen.c \
+		ft_positiv.c \
+		ft_max.c \
+		ft_min.c \
+		ft_cleansplit.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstmap.c
+
+OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+$(OBJDIR)/%.o: %.c
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(OBJSB)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(OBJSB)
-	$(CC) $(SRCS) $(SRCSB) $(CC_FLAGS)
-	ar r $(NAME) $(OBJSB)
+.PHONY: all clean fclean re

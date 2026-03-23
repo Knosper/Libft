@@ -1,17 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 01:27:35 by jjesberg          #+#    #+#             */
-/*   Updated: 2023/04/07 14:30:07 by jjesberg         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef LIBFT_H
+# ifndef LIBFT_H
 # define LIBFT_H
+
+# ifdef __cplusplus
+extern "C" {
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -44,8 +36,11 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 void				ft_cleansplit(char **split);
+void				ft_put_intarray(int *array, int len);
+void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 int					ft_splitlen(char **s);
+int					ft_abs(int n);
 int					ft_atoi_base(char *str, int str_base);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_isalpha(int c);
@@ -60,7 +55,7 @@ int					ft_tolower(int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
 int					ft_haschar(char *s, char c);
-int 				ft_has_set(const char *s, const char *set);
+int					ft_has_set(const char *s, const char *set);
 int					ft_linelen(int fd2);
 int					ft_positiv(int n);
 int					ft_max(int *array, int size);
@@ -85,7 +80,6 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char				**ft_split(char const *s, char c);
 char				*get_next_line(int fd, int reset);
-int					ft_filelen(char *path);
 int					find_newline(char *str);
 char				*copy_string(char *str, int start_index);
 
@@ -96,10 +90,14 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstdelone(t_list *lst, void (*del)(void*));
-void				ft_lstclear(t_list **lst, void (*del)(void*));
+void				ft_lstdelone(t_list *lst, void (*del)(void *));
+void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 int					ft_lstsize(t_list *lst);
 
-#endif
+# ifdef __cplusplus
+}
+# endif
+
+# endif

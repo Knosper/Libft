@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 03:29:11 by jjesberg          #+#    #+#             */
-/*   Updated: 2022/12/19 04:57:26 by jjesberg         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 # include "libft.h"
 
 int	find_newline(char *str)
@@ -26,7 +14,6 @@ int	find_newline(char *str)
 	return (-1);
 }
 
-// Returns a copy of 'str' starting at the character at index 'start_index'.
 char	*copy_string(char *str, int start_index)
 {
 	int		i;
@@ -35,7 +22,7 @@ char	*copy_string(char *str, int start_index)
 
 	if (str == NULL || start_index < 0)
 		return (NULL);
-	size = strlen(str) - start_index;
+	size = ft_strlen(str) - start_index;
 	if (size <= 0)
 		return (NULL);
 	new_str = malloc(sizeof(char) * (size + 1));

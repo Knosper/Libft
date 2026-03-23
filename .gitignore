@@ -1,2 +1,5 @@
 libft.a
+build/
 *.o
+*.d
+*.log
